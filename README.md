@@ -56,7 +56,7 @@
 |--------------------|---------------------|--------------------------------|
 | buys               | references          | null: false, foreign_key: true |
 | post_code          | integer             | null: false                    |
-| state_id           | integer             | null: false                    |
+| area_id            | integer             | null: false                    |
 | city               | string              | null: false                    |
 | street             | string              | null: false                    |
 | building           | string              | null: false                    |
