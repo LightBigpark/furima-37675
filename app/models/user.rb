@@ -3,11 +3,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
        validates :nickname,           presence: true
  
-       with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'に全角文字を使用してください' } do
+       with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'に全角文字を使用してください' } do
         validates :last_name
         validates :first_name
         end
-       with_options presence: true, format: { with: /\A[ァ-ヴー]+\z/u, message: '全角カタカナを使用してください' }do
+       with_options presence: true, format: { with: /[\p{katakana}ー－&&[^ -~｡-ﾟ]]+/, message: '全角カタカナを使用してください' }do
         validates :last_kana
         validates :first_kana
        end
