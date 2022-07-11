@@ -1,2 +1,2 @@
-class Area < ApplicationRecord
+class Area < ActiveHash::Base
 end

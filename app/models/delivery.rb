@@ -1,2 +1,2 @@
-class Delivery < ApplicationRecord
+class Delivery < ActiveHash::Base
 end

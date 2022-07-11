@@ -1,2 +1,2 @@
-class Condition < ApplicationRecord
+class Condition < ActiveHash::Base
 end
