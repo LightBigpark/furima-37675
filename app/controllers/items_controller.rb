@@ -2,6 +2,10 @@ class ItemsController < ApplicationController
   def index
   end
 
+  def new
+      before_action :authenticate_user!
+  end
+
   private
 
    def message_params
