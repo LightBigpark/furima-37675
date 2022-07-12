@@ -13,12 +13,13 @@ class Item < ApplicationRecord
     validates :items_name
     validates :explain
   end
-  with_options numericality: { other_than: 1 message: "can't be blank"}
+  with_options numericality: { other_than: 1 , message: "can't be blank"}
   validates :category_id
   validates :condition_id
   validates :delivery_id
   validates :area_id
   validates :date_id
+  end
   end
 
   validates :price,      presence: true, numericality: { in: 300..9999999 }, format: { with: /^[0-90-9]+$/}
