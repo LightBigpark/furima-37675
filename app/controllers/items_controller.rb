@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    @item.save
+      redirect_to root_path
   end
 
   private
