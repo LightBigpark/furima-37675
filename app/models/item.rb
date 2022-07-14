@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many :area
   has_many :category
   has_many :condition
-  has_many :date
+  has_many :shipping_date
   has_many :delivery
 
   with_options presence: true do
@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   validates :condition_id
   validates :delivery_id
   validates :area_id
-  validates :date_id
+  validates :shipping_date_id
   end
 
 
