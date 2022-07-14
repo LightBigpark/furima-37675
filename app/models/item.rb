@@ -23,6 +23,6 @@ class Item < ApplicationRecord
     end
     
     
-    validates :price,      presence: true, numericality: { in: 300..9999999 }, numericality: { with: /^[0-9]+$/}
+    validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
    end
 
