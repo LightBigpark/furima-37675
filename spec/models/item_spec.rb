@@ -67,6 +67,9 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors[:price]).to include("is invalid")
     end
+    it '全ての項目が入力されていれば出品できる' do
+      expect(@item).to be_valid
+    end
 
   end
 end
