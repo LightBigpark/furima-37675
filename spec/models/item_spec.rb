@@ -70,6 +70,11 @@ RSpec.describe Item, type: :model do
     it '全ての項目が入力されていれば出品できる' do
       expect(@item).to be_valid
     end
+    it 'userが紐付いていないと保存できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include('User must exist')
+    end
 
   end
 end
