@@ -22,28 +22,28 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Explain can't be blank")
     end
-    it 'category_idが空では登録できない' do
-      @item.category_id = ''
+    it 'category_idが値に---が入っていると登録できない' do
+      @item.category_id = '---'
       @item.valid?
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
-    it 'condition_idが空では登録できない' do
-      @item.condition_id = ''
+    it 'condition_idが値に---が入っていると登録できない' do
+      @item.condition_id = '---'
       @item.valid?
       expect(@item.errors.full_messages).to include("Condition can't be blank")
     end
-    it 'delivery_idが空では登録できない' do
-      @item.delivery_id = ''
+    it 'delivery_idが値に---が入っていると登録できない' do
+      @item.delivery_id = '---'
       @item.valid?
       expect(@item.errors.full_messages).to include("Delivery can't be blank")
     end
-    it 'area_idが空では登録できない' do
-      @item.area_id = ''
+    it 'area_idが値に---が入っていると登録できない' do
+      @item.area_id = '---'
       @item.valid?
       expect(@item.errors.full_messages).to include("Area can't be blank")
     end
-    it 'shipping_date_idが空では登録できない' do
-      @item.shipping_date_id = ''
+    it 'shipping_date_idが値に---が入っていると登録できない' do
+      @item.shipping_date_id = '---'
       @item.valid?
       expect(@item.errors.full_messages).to include("Shipping date can't be blank")
     end
