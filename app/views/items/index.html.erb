@@ -121,12 +121,11 @@
     <h2 class='title'>ピックアップカテゴリー</h2>
     <div class="subtitle" >
 
-    
+
       新規投稿商品
     </div>
       <ul class='item-lists'>
         <% @item.each do |item| %>
-      <div class="content_post" style="background-image: url(<%= item.image %>);">
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
