@@ -26,6 +26,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+  end
+
   private
 
   def item_params
@@ -35,5 +40,6 @@ class ItemsController < ApplicationController
   def message_params
     params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
   end
+
 
 end
