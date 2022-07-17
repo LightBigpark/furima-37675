@@ -6,13 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
-    @items = Item.new(item_params)
-    if @items.save
-      render 'index'
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
     else
       render 'new'
     end
