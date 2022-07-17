@@ -3,81 +3,81 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     user = FactoryBot.create(:user)
-    @item = FactoryBot.build(:item, user_id: user.id)
+    @items = FactoryBot.build(:item, user_id: user.id)
   end
 
   context '内容に問題がある場合' do
   describe '商品出品機能' do
     it 'imageが空では登録できない' do
-      @item.image = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Image can't be blank")
+      @items.image = nil
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Image can't be blank")
     end
     it 'items_nameが空では登録できない' do
-      @item.items_name = ''
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Items name can't be blank")
+      @items.items_name = ''
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Items name can't be blank")
     end
     it 'explainが空では登録できない' do
-      @item.explain = ''
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Explain can't be blank")
+      @items.explain = ''
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Explain can't be blank")
     end
     it 'category_idが値に---が入っていると登録できない' do
-      @item.category_id = '1'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Category can't be blank")
+      @items.category_id = '1'
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Category can't be blank")
     end
     it 'condition_idが値に---が入っていると登録できない' do
-      @item.condition_id = '1'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Condition can't be blank")
+      @items.condition_id = '1'
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Condition can't be blank")
     end
     it 'delivery_idが値に---が入っていると登録できない' do
-      @item.delivery_id = '1'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery can't be blank")
+      @items.delivery_id = '1'
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Delivery can't be blank")
     end
     it 'area_idが値に---が入っていると登録できない' do
-      @item.area_id = '1'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Area can't be blank")
+      @items.area_id = '1'
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Area can't be blank")
     end
     it 'shipping_date_idが値に---が入っていると登録できない' do
-      @item.shipping_date_id = '1'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+      @items.shipping_date_id = '1'
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Shipping date can't be blank")
     end
     it 'priceが空では登録できない' do
-      @item.price = ''
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Price is invalid")
+      @items.price = ''
+      @items.valid?
+      expect(@items.errors.full_messages).to include("Price is invalid")
     end
     it 'priceが300円未満では保存できないこと' do
-      @item.price = 0
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Price is invalid')
+      @items.price = 0
+      @items.valid?
+      expect(@items.errors.full_messages).to include('Price is invalid')
     end
     it 'priceが9,999,999円を超過すると保存できないこと' do
-      @item.price = 10000000
-      @item.valid?
-      expect(@item.errors.full_messages).to include('Price is invalid')
+      @items.price = 10000000
+      @items.valid?
+      expect(@items.errors.full_messages).to include('Price is invalid')
     end
     it 'priceが半角英数でないと登録できない' do
-      @item = build(:item, price: "aiueo") 
-      @item.valid?
-      expect(@item.errors[:price]).to include("is invalid")
+      @items = build(:items, price: "aiueo") 
+      @items.valid?
+      expect(@items.errors[:price]).to include("is invalid")
     end
     it 'userが紐付いていないと保存できない' do
-      @item.user = nil
-      @item.valid?
-      expect(@item.errors.full_messages).to include('User must exist')
+      @items.user = nil
+      @items.valid?
+      expect(@items.errors.full_messages).to include('User must exist')
     end
   end
 
     context '内容に問題ない場合' do
       it '全ての項目が入力されていれば出品できる' do
-        expect(@item).to be_valid
+        expect(@items).to be_valid
       end
     end
 

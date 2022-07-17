@@ -1,21 +1,25 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.order("created_at DESC")
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
-    @items = Item.new(item_params)
-    if @items.save
-      render 'index'
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
     else
       render 'new'
     end
+  end
+
+  def show
+    @item = Item.where(id: params[:id])
   end
 
   private

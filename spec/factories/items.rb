@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :item do
+  factory :items do
     association :user
     items_name        {'あいうえお'}
     explain           {'あいうえお'}
