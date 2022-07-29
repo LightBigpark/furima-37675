@@ -49,7 +49,7 @@
 * belongs_to :item
 * belongs_to :user
 
-## address table
+## user address table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
@@ -58,9 +58,9 @@
 | area_id            | integer             | null: false                    |
 | city               | string              | null: false                    |
 | addresses          | string              | null: false                    |
-| building           | string              |                                |
+| building           | string              | null: false                    |
 | phone_number       | string              | null: false                    |
 
 ### Association
 
-* belongs_to :buy
+* belongs_to :order
