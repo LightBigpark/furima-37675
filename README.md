@@ -36,7 +36,7 @@
 * belongs_to :user
 * has_one :buy
 
-## buys table
+## orders table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
@@ -53,13 +53,13 @@
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| buy                | references          | null: false, foreign_key: true |
+| order              | references          | null: false, foreign_key: true |
 | post_code          | string              | null: false                    |
 | area_id            | integer             | null: false                    |
 | city               | string              | null: false                    |
-| street             | string              | null: false                    |
+| addresses          | string              | null: false                    |
 | building           | string              |                                |
-| phone              | string              | null: false                    |
+| phone_number       | string              | null: false                    |
 
 ### Association
 
