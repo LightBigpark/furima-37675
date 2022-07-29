@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   def index
     @order = Order.new
+    @item = Item.where(params[:item_id])
   end
 
   def create
-    binding.pry
     @order = Order.new(order_params)
     if @order.valid?
       pay_item
