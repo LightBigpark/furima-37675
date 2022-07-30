@@ -11,5 +11,7 @@ class UserAddress < ApplicationRecord
   validates :user_id
 end
  def save
+  order = Order.create(price: price, user_id: user_id)
 
+  Address.create(post_code: post_code, area_id: area_id, addresses: addresses, building: building, phone_number: phone_number)
 end
