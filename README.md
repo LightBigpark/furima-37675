@@ -49,7 +49,7 @@
 * belongs_to :item
 * belongs_to :user
 
-## user address table
+## address table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
