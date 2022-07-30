@@ -6,7 +6,7 @@ class UserAddress < ApplicationRecord
   validates :area_id
   validates :addresses
   validates :building
-  validates :phone_number format: { with: ^0\d{10,11}$}
+  validates :phone_number format: { with: /\A\d{10,11}\z/}
   validates :price,  numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is invalid"}
   validates :user_id
 end
