@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if @orderaddress.valid?
       pay_item
-      @order_address.save
+      @orderaddress.save
       return redirect_to root_path
     else
       render 'index'
