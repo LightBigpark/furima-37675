@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:create, :index]
   def index
     @orderaddress = OrderAddress.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
     @orderaddress = OrderAddress.new(order_params)
-    @item = Item.find(params[:item_id])
     if @orderaddress.valid?
       pay_item
       @orderaddress.save
@@ -29,6 +28,10 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_order
+    @item = Item.find(params[:item_id])
   end
 
 end
