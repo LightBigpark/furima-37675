@@ -1,10 +1,14 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:create, :index]
   before_action :authenticate_user!, except: [:index]
-  before_action :move_to_index, except: [:create]
 
   def index
     @orderaddress = OrderAddress.new
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    else  @item.user_id == nil
+      redirect_to root_path
+    end
   end
 
   def create
@@ -12,7 +16,8 @@ class OrdersController < ApplicationController
     if @orderaddress.valid?
       pay_item
       @orderaddress.save
-      return redirect_to root_path
+      redirect_to root_path
+      
     else
       render 'index'
     end
@@ -35,14 +40,6 @@ class OrdersController < ApplicationController
 
   def set_order
     @item = Item.find(params[:item_id])
-  end
-
-  def move_to_index
-    unless current_user.id == @item.user_id
-      redirect_to root_path
-    else @item.user_id = nil
-      redirect_to root_path
-    end
   end
 
 end
