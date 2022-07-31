@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
     @orderaddress = OrderAddress.new
     if current_user.id == @item.user_id
       redirect_to root_path
-    else  @item.user_id == nil
+    else @item.blank?
       redirect_to root_path
     end
   end
@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
       pay_item
       @orderaddress.save
       redirect_to root_path
-      
     else
       render 'index'
     end
@@ -26,7 +25,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_address).permit(:post_code, :area_id, :city, :addresses, :building, :phone_number).merge(user_id: current_user.id,item_id: params[:item_id], token: params[:token])
+    params.require(:order_address).permit(:post_code, :area_id, :city, :addresses, :building, :phone_number).merge(user_id: current_user.id,item_id: params[:item_id], order_id: order.id, token: params[:token])
   end
 
   def pay_item
