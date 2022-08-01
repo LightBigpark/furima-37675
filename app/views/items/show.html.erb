@@ -2,18 +2,19 @@
 
 <%# 商品の概要 %>
 <div class="item-show">
- <% @item.each do |item| %>
+<% @item.each do |item| %>
   <div class="item-box">
     <h2 class="name">
       <%= item.items_name %>
     </h2>
     <div class="item-img-content">
       <%= image_tag item.image,class:"item-img" %>
-      <% if item.blank? %>
+       <% if item.order.present? %>  
       <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
       <% end %>
+     
     </div>
     <div class="item-price-box">
       <span class="item-price">
