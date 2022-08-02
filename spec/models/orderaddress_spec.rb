@@ -50,6 +50,11 @@ RSpec.describe OrderAddress, type: :model do
         @orderaddress.valid?
         expect(@orderaddress.errors.full_messages).to include("Phone number is invalid")
       end
+      it '電話番号に半角数字以外が含まれている場合は購入できない' do
+        @orderaddress.phone_number = 'aa12345678'
+        @orderaddress.valid?
+        expect(@orderaddress.errors.full_messages).to include("Phone number is invalid")
+      end
     end
 
     context '内容に問題ない場合' do
