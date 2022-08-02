@@ -16,7 +16,7 @@
 ### Association
 
 * has_many :items
-* has_many :buys
+* has_many :orders
 
 ## items table
 
@@ -34,9 +34,9 @@
 
 ### Association
 * belongs_to :user
-* has_one :buy
+* has_one :order
 
-## buys table
+## orders table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
@@ -53,14 +53,14 @@
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| buy                | references          | null: false, foreign_key: true |
+| order              | references          | null: false, foreign_key: true |
 | post_code          | string              | null: false                    |
 | area_id            | integer             | null: false                    |
 | city               | string              | null: false                    |
-| street             | string              | null: false                    |
-| building           | string              |                                |
-| phone              | string              | null: false                    |
+| addresses          | string              | null: false                    |
+| building           | string              | null: false                    |
+| phone_number       | string              | null: false                    |
 
 ### Association
 
-* belongs_to :buy
+* belongs_to :order
