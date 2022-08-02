@@ -52,6 +52,9 @@ RSpec.describe OrderAddress, type: :model do
         @orderaddress.building = ''
         expect(@orderaddress).to be_valid
       end
+      it 'すべての情報が完備していたら保存できること' do
+        expect(@orderaddress).to be_valid
+      end
     end
   end
 end
