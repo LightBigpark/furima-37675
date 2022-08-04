@@ -124,9 +124,9 @@
 
       新規投稿商品
     </div>
+     <ul class='item-lists'>
       <% @items.each do |item| %>
-        <ul class='item-lists'>
-        <li class='list'>
+          <li class='list'>
         <%= link_to item_path(item.id), method: :get do %>
           <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
@@ -150,10 +150,9 @@
             </div>
             </div>
             </div>
-            </div>
           <% end %>
         </li>
-        <% end %>
+      <% end %>
       <% if @items.length == 0 %>
         <li class='list'>
         <%= link_to '#' do %>
